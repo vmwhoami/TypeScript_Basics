@@ -1,1 +1,5 @@
-console.log('hello world');
+
+
+let names = ['vasea', 'pechea'];
+names.push('gheorghe')
+
