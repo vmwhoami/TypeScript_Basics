@@ -1,8 +1,8 @@
 class Person {
-  name: string;
+  readonly name: string;
   surname: string;
-  phone: number;
-  gender: string;
+  public phone: number;
+  private gender: string;
   //All are public by default
   constructor(a: string, b: string, c: number, d: string) {
     this.name = a;
@@ -12,8 +12,8 @@ class Person {
   }
 
   presentation = () => {
-    return `${this.name} with the 
-    family name of ${this.surname} is a ${this.gender} 
+    return `This is ${this.name} with the 
+    family name of ${this.surname} ${this.gender === 'male' ? 'he' : 'she'} is a ${this.gender} 
     and has the number:  ${this.phone} `
   }
 
@@ -21,9 +21,13 @@ class Person {
 
 const jim = new Person("Jim", "Kwik", 69442476, "male");
 const bob = new Person("Bob", "Dilan", 694424345, "male");
-
+const jane = new Person("Jane", "Doe", 694434345, "female");
 const persons: Person[] = [];
 persons.push(jim);
 persons.push(bob);
+persons.push(jane);
 
+persons.forEach(person => {
+  console.log(person.name);
+})
 
